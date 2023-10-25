@@ -1,4 +1,4 @@
-# SAMRank
+# TPG-LRFT
 
 This account is an anonymous account for LREC-Coling 2024.
 
