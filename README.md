@@ -48,3 +48,10 @@ python train.py \
     --max-learning-rate 1e-5 \
     --gpus 0 
 ```
+
+### Test
+```shell
+python test/test.py \
+    --model_path finetuned/model/path
+    --dataset_path test/data/inspec.json
+```
