@@ -11,6 +11,9 @@ This code is for paper "Improving Low-Resource Keyphrase Generation through Unsu
 - nltk
 - tqdm
 
+Please download the train data of kp20k from the following link:
+https://huggingface.co/datasets/memray/kp20k/tree/main
+
 ## Runing
 ### Constructing Pseudo Keyphrases Label
 ```shell
