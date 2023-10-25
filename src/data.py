@@ -24,7 +24,7 @@ def meng17_tokenize(text):
 
     return tokens
 
-def TPG_LRFT_DataLoader(fname, tokenizer, batch_size, max_length, mode="train", stage='TPG'):
+def TPG_LRFT_DataLoader(stage, fname, tokenizer, batch_size, max_length, mode="train" ):
     """
     Build Data Loader
 
