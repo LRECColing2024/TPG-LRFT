@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(prog="train", description="Train Table to Text 
 
 g = parser.add_argument_group("Common Parameter")
 g.add_argument("--output-dir", type=str, required=True, help="output directory path to save artifacts")
-g.add_argument("--model-path", type=str, required=True,  default="facebook/bart-base", help="model file path")
+g.add_argument("--model-path", type=str, default="facebook/bart-base", help="model file path")
 g.add_argument("--train-path", type=str, required=True, help="train dataset file path")
 g.add_argument("--valid-path", type=str, required=True, help="valid dataset file path")
 g.add_argument("--stage", type=str, required=True, default="TPG", help="TPG or LRFT")
@@ -60,8 +60,8 @@ def main(args):
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
 
     logger.info(f'[+] Load Dataset')
-    train_dataloader = TPG_LRFT_DataLoader(args.train_path, tokenizer, args.batch_size_train, args.max_seq_len, args.stage)
-    valid_dataloader = TPG_LRFT_DataLoader(args.valid_path, tokenizer, args.batch_size_valid, args.max_seq_len, args.stage)
+    train_dataloader = TPG_LRFT_DataLoader(args.stage, args.train_path, tokenizer, args.batch_size_train, args.max_seq_len, )
+    valid_dataloader = TPG_LRFT_DataLoader(args.stage, args.valid_path, tokenizer, args.batch_size_valid, args.max_seq_len, )
     total_steps = len(train_dataloader) * args.epochs // len(args.gpus)
 
     logger.info(f'[+] Load Model from "{args.model_path}"')
